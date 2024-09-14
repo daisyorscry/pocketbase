@@ -1,0 +1,79 @@
+//TODOLIST, crud application with pocketbase
+
+api spec
+
+Request Header{
+	Accept : "application/json",
+	ContentType : "application/json",
+	X-API-Token : "Baerer JWT-AUTH"
+}
+
+if (200){
+	Request Body{
+		Status : 200,
+		Message : OK,
+		Data : {[
+		    id : "ID"
+		    name : "NAME"
+		    username : "USERNAME"
+		    email : "EMAIL"
+		    todolist : "TODOLIST"
+		]}
+	}
+}if(404) {
+	Request Body{
+		Status : 404,
+		Message : NOT FOUND,
+		Data : {[
+		  Error : "Not Found"
+		
+		]}
+	}
+}if(403) {
+	Request Body{
+		Status : 404,
+		Message : FORBIDDEN,
+		Data : {[
+		  Error : "Forbidden"
+		
+		]}
+	}
+}if(401) {
+	Request Body{
+		Status : 401,
+		Message : UNAUTHORIZED,
+		Data : {[
+		  Error : "Unauthorized"
+		
+		]}
+	}
+}if(400) {
+	Request Body{
+		Status : 400,
+		Message : Bad Request,
+		Data : {[
+		  Error : "Bad Request"
+		
+		]}
+	}
+}
+
+
+GET FindAll => localhost:8080/api/todolist/
+GET FindById => localhost:8080/api/todolist/{ID}/ -> REQUEST PARAMS
+GET FindByName => localhost:8080/api/todolist/{username}/ -> REQUEST PARAMS
+POST CreateTodolist => localhost:8080/api/todolist/create/ -> REQUEST BODY
+PUT UpdateTodolistById => localhost:8080/api/todolist/update/-> REQUEST BODY
+PUT UpdateTodolistByName => localhost:8080/api/todolist/update/-> REQUEST BODY
+PUT UpdateTodolistByUsername => localhost:8080/api/todolist/update/-> REQUEST BODY
+DELETE DeleteTodolistById => localhost:8080/api/todolist/delete/ -> REQUEST BODY
+DELETE DeleteTodolistByName => localhost:8080/api/todolist/delete/ -> REQUEST BODY
+DELETE DeleteTodolistByUsername => localhost:8080/api/todolist/delete/ -> REQUEST BODY
+ 
+1. Buat Collection
+2. buat recordnya
+3. buat crud di repository
+4. akses repository melalui service
+5. ekspose service melalui controller
+6. buat route untuk get controllernya mengugnakan pocketbase
+
